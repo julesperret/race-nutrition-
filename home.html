@@ -14,9 +14,6 @@
     <div class="sp-d-s f-num" style="top:calc(61% - 100%e);left:calc(26% - 50%e);">
       <!-- Eval element is replaced by the value from the input resource. This uses a resource that was created by the Zapp and is _not_ native to the watch. -->
       <eval input="/Zapp/{zapp_index}/Output/counter" outputFormat="Count_Fourdigits" default="--"/>
-      <div>***</div>
-      <eval input="/Zapp/{zapp_index}/Output/nbalert" outputFormat="Count_Fourdigits" default="--"/>
-
     </div>
 
     <!-- Field just under the title, right side -->
@@ -29,8 +26,14 @@
     </div>
 
     <!-- Bottom text area -->
-    <div class="sp-t-s p-tc p-hc" style="top:calc(75% - 50%e);width:75%;max-height:120px;">This is my text</div>
+    <div class="cm-mid sp-t-s" style="top:calc(73% - 100%e);left:calc(50% - 50%e);">Nombre gels pris</div>
 
+    <div class="sp-d-s f-num" style="top:calc(90% - 100%e);left:calc(50% - 50%e);">
+        <!-- Eval element is replaced by the value from the input resource. This uses a resource that was created by the Zapp and is _not_ native to the watch. -->
+        <!-- <eval input="/Zapp/{zapp_index}/Output/nbalert" outputFormat="Count_Fourdigits" default="--"/> -->
+        <eval input="/Zapp/{zapp_index}/Output/minutes" outputFormat="Count_Fourdigits" default="--"/>
+        <eval input="/Zapp/{zapp_index}/Output/seconds" outputFormat="Count_Fourdigits" default="--"/>
+      </div>
   </div>
 
 </uiView>

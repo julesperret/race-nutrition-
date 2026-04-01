@@ -19,12 +19,21 @@
     },
     {
       "name": "nbalert"
+    },
+    {
+      "name": "time"
+    },
+    {
+      "name": "minutes"
+    },
+    {
+      "name": "seconds"
     }
   ],
   
   "template": [
     {
-      "name": "t.html"
+      "name": "home.html"
     }
   ]
 }

@@ -9,7 +9,6 @@ var recentlyChanged = false;
 
 
 var interval = 10; //secondes
-var timer = interval;
 var changeTemplate = function(template) {
   if (currentTemplate == template) {
     return;
@@ -27,6 +26,33 @@ var changeTemplate = function(template) {
   }
 }
 
+var convertSecondstoTime = function convertSecondstoTime(counter) {
+
+    var hours = Math.floor(counter / 3600);
+    var minutes = Math.floor((counter % 3600) / 60);
+    var seconds = counter % 60;
+    var timeString = hours.toString().padStart(2, '0')
+        + ':' + minutes.toString().padStart(2, '0')
+        + ':' + seconds.toString().padStart(2, '0');
+
+    return timeString;
+
+    //faire
+}
+
+var convertSecondstoMinutes = function convertSecondstoMinutes(output,counter) {
+    var hours = Math.floor(counter / 3600);
+    var minutes = Math.floor((counter % 3600) / 60);
+    var seconds = counter % 60;
+    return minutes; 
+}
+var convertSecondstoSeconds = function convertSecondstoMinutes(output,counter) {
+    var hours = Math.floor(counter / 3600);
+    var minutes = Math.floor((counter % 3600) / 60);
+    var seconds = counter % 60;
+    return seconds; 
+}
+
 /* Other available callbacks:
 function onExerciseStart() {}    // Is evaluated on exercise start
 function onExercisePause() {}    // Is evaluated on exercise pause
@@ -39,13 +65,17 @@ function onPoolLength() {}       // Is evaluated after each pool length (swimmin
 
 function evaluate(input, output) {
   output.counter = output.counter + 1;
-  if (output.counter == timer) {
-    timer = timer + interval;
+  output.time = convertSecondstoTime(output.counter);
+  output.minutes = convertSecondstoMinutes(output, output.counter);
+  output.seconds = convertSecondstoSeconds(output, output.counter);
+
+  if (output.counter == interval) {
+    output.counter = 0;
     output.nbalert = output.nbalert + 1;
     changeTemplate("alert");
   }
-  
 }
+
 
 // main.js loaded and system starts calling evaluate()
 function onLoad(input, output) {
