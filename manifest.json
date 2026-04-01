@@ -1,0 +1,30 @@
+{
+  "name": "Race nutrition +",
+  "version": "1.0",
+  "author": "Author",
+  "description": "Sports app",
+  "type": "feature",
+  "usage": "workout",
+  "modificationTime": 1775037221,
+  "in": [
+    {
+      "name": "Duration",
+      "source": "Activity/Move/-1/Duration/Current",
+      "type": "subscribe"
+    }
+  ],
+  "out": [
+    {
+      "name": "counter"
+    },
+    {
+      "name": "nbalert"
+    }
+  ],
+  
+  "template": [
+    {
+      "name": "t.html"
+    }
+  ]
+}
